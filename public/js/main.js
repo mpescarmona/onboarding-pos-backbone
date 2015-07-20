@@ -18,22 +18,30 @@ requirejs.config({
    * since it didn't work properly with the RequireJS shim when optimizing
    */
   paths: {
-    'text'             : 'lib/text',
-    'jquery'           : 'lib/jquery',
-    'underscore'       : 'lib/underscore-amd',
-    'backbone'         : 'lib/backbone-amd',
-    'bootstrap'        : 'lib/bootstrap',
-    'moment'           : 'lib/moment',
-    'Mediator'         : 'lib/mediator',
-    'App'              : 'app',
-    'Router'           : 'router',
-    'ClientModel'      : 'models/client',
-    'ClientCollection' : 'collections/clients',
-    'HomeView'         : 'views/home',
-    'HeaderView'       : 'views/header',
-    'ClientListView'   : 'views/clients/index',
-    'ClientEditView'   : 'views/clients/edit',
-    'ClientView'       : 'views/clients/show'
+    'text'              : 'lib/text',
+    'jquery'            : 'lib/jquery',
+    'underscore'        : 'lib/underscore-amd',
+    'backbone'          : 'lib/backbone-amd',
+    'bootstrap'         : 'lib/bootstrap',
+    'moment'            : 'lib/moment',
+    'Mediator'          : 'lib/mediator',
+    'App'               : 'App',
+    'Router'            : 'Router',
+    'ClientModel'       : 'models/client',
+    'ClientCollection'  : 'collections/clients',
+    'HomeView'          : 'views/home',
+    'HeaderView'        : 'views/header',
+    'ClientListView'    : 'views/clients/index',
+    'ClientEditView'    : 'views/clients/edit',
+    'ClientView'        : 'views/clients/show',
+
+    'WsConfig'          : 'config/dev',
+
+    'CategoryModel'     : 'modules/category/models/category',
+    'CategoryCollection': 'modules/category/models/categories',
+    'CategoryListView'  : 'modules/category/views/index',
+    'CategoryEditView'  : 'modules/category/views/edit',
+    'CategoryView'      : 'modules/category/views/show'
   }
 });
 
