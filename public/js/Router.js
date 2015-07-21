@@ -170,7 +170,7 @@ define('Router', [
           that.elms['page-content'].html(view.render().el);
           view.model.on('delete-success', function() {
             delete view;
-            that.navigate('clients', { trigger: true });
+            that.navigate('category', { trigger: true });
           });
         },
         error   : function(model, res) {
@@ -197,7 +197,7 @@ define('Router', [
       });
       view.model.on('save-success', function(id) {
         delete view;
-        that.navigate('#/category/' + id, { trigger: true });
+        that.navigate('category', { trigger: true });
       });
     },
     editCategory: function(id) {
@@ -220,7 +220,7 @@ define('Router', [
           });
           view.model.on('save-success', function() {
             delete view;
-            that.navigate('#/category/' + id, { trigger: true });
+            that.navigate('category', { trigger: true });
           });
         },
         error   : function(model, res) {
