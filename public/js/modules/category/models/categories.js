@@ -4,15 +4,12 @@ define('CategoryCollection', [
   'backbone',
   'CategoryModel',
   'WsConfig'
-], function($, _, Backbone, Category, config) {
+], function($, _, Backbone, Category, wsConfig) {
   var CategoryCollection;
-
-  // console.log(config.wsBaseUrl());
 
   CategoryCollection = Backbone.Collection.extend({
     model : Category,
-    // url   : config.wsBaseUrl() + "/onboarding-pos-demo/ws/category",
-    url   : "http://172.17.100.138:8080/onboarding-pos-demo/ws/category",
+    url   : wsConfig.wsBaseUrl() + "/onboarding-pos-demo/ws/category",
 
     initialize: function () {
       var that = this;

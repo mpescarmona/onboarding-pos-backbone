@@ -1,12 +1,20 @@
-var config;
+define('WsConfig', [
+], function() {
+	var wsConfig;
 
-config = {
-	wsBaseUrl: function() {
-		var CONST = {
-			'ws_ip'       : '172.17.100.138',
-			'ws_port'     : '8080'
-		};
+	var CONST = {
+		'protocol': 'http',
+		'ws_ip'   : '172.17.101.42',
+		'ws_port' : '8080'
+	};
 
-	return CONST.ws_ip + ':' + CONST.ws_port
+	wsConfig = {
+		wsBaseUrl: function() {
+
+		return CONST.protocol + '://' + CONST.ws_ip + ':' + CONST.ws_port;
+		}
 	}
-}
+
+	return wsConfig;
+});
+

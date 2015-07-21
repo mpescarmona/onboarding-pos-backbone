@@ -1,13 +1,14 @@
 define('CategoryModel', [
   'jquery',
   'underscore',
-  'backbone'
-], function($, _, Backbone) {
+  'backbone',
+  'WsConfig'
+], function($, _, Backbone, wsConfig) {
   var Category;
 
   Category = Backbone.Model.extend({
     idAttribute: "id",
-    urlRoot: "http://172.17.100.138:8080/onboarding-pos-demo/ws/category",
+    urlRoot: wsConfig.wsBaseUrl() + "/onboarding-pos-demo/ws/category",
     // set defaults for checking existance in the template for the new model
     defaults: {
       categoryName    : ''
