@@ -1,32 +1,28 @@
 {
     "name"        : "ClientsApp",
-    "description" : "Backbone demo with Node.js on the backend",
+    "description" : "Backbone POS demo with REST backend",
     "version"     : "0.0.1",
-    "author"      : "Alexandru Vladutu <alexandru.vladutu@gmail.com>",
+    "author"      : "Mario Pescarmona <mpescarmona@gmail.com>",
     "engines"     : {
-      "node": ">=0.6.x"
+      "node": ">=0.12.7"
     },
     "dependencies": {
-      "async"           : "0.1.x",
-      "colors"          : "*",
-      "connect"         : "2.1.x",
-      "connect-timeout" : "0.0.1",
-      "express"         : "2.x.x",
-      "moment"          : "1.6.x",
-      "mongoose"        : "2.5.x",
-      "uglify-js"       : "1.2.x",
-      "underscore"      : "*",
-      "gzippo"          : "0.1.4",
-      "requirejs"       : "2.0.2"
+      "async"           : "1.4.0",
+      "colors"          : "1.1.2",
+      "connect"         : "3.4.0",
+      "connect-timeout" : "1.6.2",
+      "express"         : "4.13.1",
+      "moment"          : "2.10.3",
+      "uglify-js"       : "2.4.24",
+      "requirejs"       : "2.4.20"
     },
     "devDependencies": {
-      "mocha"   : "1.1.x",
-      "should"  : "0.6.x",
-      "request" : "2.9.x"
+      "mocha"   : "2.2.5",
+      "should"  : "7.0.2",
+      "request" : "2.60.0"
     },
     "scripts": {
       "test"        : "node_modules/.bin/mocha --ui bdd --recursive --reporter spec --timeout 10000 --slow 300",
-      "postinstall" : "jake -v || npm install jake@0.2.23 -g",
       "start"       : "NODE_ENV=production node app.js"
     }
 }
