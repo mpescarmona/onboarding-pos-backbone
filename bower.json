@@ -1,0 +1,26 @@
+{
+  "name": "onboarding-pos-backbone",
+  "version": "0.0.0",
+  "homepage": "https://github.com/mpescarmona/onboarding-pos-backbone",
+  "authors": [
+    "mpescarmona <mpescarmona@gmail.com>"
+  ],
+  "description": "Backbone POS Demo",
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "latest",
+    "jquery": "latest",
+    "backbone-amd": "latest",
+    "underscore-amd": "latest"
+  }
+}
