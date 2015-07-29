@@ -7,7 +7,6 @@ define('CategoryModel', [
   var Category;
 
   Category = Backbone.Model.extend({
-    idAttribute: "id",
     urlRoot: wsConfig.wsBaseUrl() + "/onboarding-pos-demo/ws/category",
     // set defaults for checking existance in the template for the new model
     defaults: {
