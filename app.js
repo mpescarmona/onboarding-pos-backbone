@@ -1,12 +1,12 @@
-var connect        = require('connect'),
-    express        = require('express'),
-    connectTimeout = require('connect-timeout'),
-    mongoose       = require('mongoose'),
-    gzippo         = require('gzippo'),
-    utils          = require('./lib/utils'),
-    EventEmitter   = require('events').EventEmitter,
-    AppEmitter     = new EventEmitter(),
-    app            = express.createServer(),
+var // connect        = require('connect'),
+    //express        = require('express'),
+    //connectTimeout = require('connect-timeout'),
+    //mongoose       = require('mongoose'),
+    //gzippo         = require('gzippo'),
+    //utils          = require('./lib/utils'),
+    //EventEmitter   = require('events').EventEmitter,
+    //AppEmitter     = new EventEmitter(),
+    //app            = express.createServer(),
     ENV            = process.env.NODE_ENV || 'development',
     log            = console.log,
     dbPath;
@@ -32,15 +32,15 @@ utils.loadConfig(__dirname + '/config', function(config) {
     });
   });
 
-  mongoose = utils.connectToDatabase(mongoose, config.db[ENV].main);
+  //mongoose = utils.connectToDatabase(mongoose, config.db[ENV].main);
 
   // register models
-  require('./app/models/client')(mongoose);
+  //require('./app/models/client')(mongoose);
 
   // register controllers
-  ['clients', 'errors'].forEach(function(controller) {
-    require('./app/controllers/' + controller + '_controller')(app, mongoose, config);
-  });
+  //['clients', 'errors'].forEach(function(controller) {
+  //  require('./app/controllers/' + controller + '_controller')(app, mongoose, config);
+  //});
 
   app.on('error', function (e) {
     if (e.code == 'EADDRINUSE') {
