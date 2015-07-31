@@ -1,31 +1,17 @@
-module.exports = function(grunt) {
+'use strict';
 
+module.exports = function(grunt) {
     // Unified Watch Object
     var watchFiles = {
-        serverViews: ['app/views/**/*.*'],
-        //serverJS: ['gruntfile.js', 'server.js', 'config/**/*.js', 'app/**/*.js', '!app/tests/'],
-        clientViews: ['public/modules/**/views/**/*.html'],
         clientJS: ['public/js/*.js', 'public/modules/**/*.js'],
-        clientCSS: ['public/modules/**/*.css', 'public/css/*.css'],
-        mochaTests: ['app/tests/**/*.js']
+        clientCSS: ['public/modules/**/*.css']
     };
 
-    // Project configuration.
+    // Project Configuration
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        uglify: {
-            options: {
-                banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-            },
-            build: {
-                src: 'src/<%= pkg.name %>.js',
-                dest: 'build/<%= pkg.name %>.min.js'
-            }
-        },
-
         jshint: {
             all: {
-                //src: watchFiles.clientJS.concat(watchFiles.serverJS),
                 src: watchFiles.clientJS,
                 options: {
                     jshintrc: true
@@ -40,11 +26,35 @@ module.exports = function(grunt) {
                 src: watchFiles.clientCSS
             }
         },
-
+        uglify: {
+            production: {
+                options: {
+                    mangle: false
+                },
+                files: {
+                    'public/dist/application.min.js': 'public/dist/application.js'
+                }
+            }
+        },
+        cssmin: {
+            combine: {
+                files: {
+                    'public/dist/application.min.css': '<%= applicationCSSFiles %>'
+                }
+            }
+        },
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
+        }
     });
 
-    // Load the plugin that provides the "uglify" task.
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    // Load NPM tasks
+    require('load-grunt-tasks')(grunt);
+
+    // Making grunt default to force in order not to break the project.
+    grunt.option('force', true);
 
     // Default task
     grunt.registerTask('default', function() {
@@ -64,10 +74,13 @@ module.exports = function(grunt) {
     });
 
     // Lint task(s).
-    grunt.registerTask('lint', ['jshint:all', 'csslint']);
+    grunt.registerTask('lint', ['jshint', 'csslint']);
 
     // Build task(s).
-    grunt.registerTask('build', ['lint', 'loadConfig', 'ngAnnotate', 'uglify', 'cssmin']);
+    grunt.registerTask('build', ['lint', 'uglify', 'cssmin']);
 
-
+    // Test task.
+    grunt.registerTask('test', ['test:server', 'test:client']);
+    grunt.registerTask('test:server', ['env:test', 'mochaTest']);
+    grunt.registerTask('test:client', ['karma:unit']);
 };

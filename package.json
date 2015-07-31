@@ -25,10 +25,12 @@
     "mocha": "2.2.5",
     "request": "2.60.0",
     "should": "7.0.2",
-    "yadda": "^0.15.2"
+    "yadda": "^0.15.2",
+    "load-grunt-tasks": "~3.2.0",
+    "grunt-contrib-csslint": "~0.5.0"
   },
   "scripts": {
-    "test": "node_modules/.bin/mocha --ui bdd --recursive --reporter spec --timeout 10000 --slow 300",
-    "start": "NODE_ENV=production node app.js"
+    "start": "grunt",
+    "test": "grunt test"
   }
 }
